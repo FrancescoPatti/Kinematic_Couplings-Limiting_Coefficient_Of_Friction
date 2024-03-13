@@ -1,3 +1,36 @@
+%% Description
+%
+% This script calculates the LIMITING COEFFICIENT OF FRICTION of a generic 
+% Kinematic Coupling. 
+%
+% The method is explained in detail in:
+% F. Patti and J. M. Vogels, "Self-alignment of kinematic couplings: Effects of deformations,"
+% Precision Engineering, vol. 60, no. September, pp. 348–354, 2019
+% doi: 10.1016/j.precisioneng.2019.08.013.
+% 
+% The naming convention is as much as possible similar to the one used in
+% the paper.
+%
+% Inputs:
+% Since any layout can be studied, the geometry is defined by simply assigning the
+% coordinates of the 6 points of contact with the matrix "r", where each
+% column "i" is the coordinates of point "i". Moreover, the matrix "n"
+% contains the normals of the contacts (pointing towards the moving body).
+%
+% The load is defined with a number of forces with the matrix "FTot":
+% colomn "i" represent the force "i", applied in the point of coordinates
+% stored in the column "i" of the matrix RForce.
+%
+% Outputs:
+% LCF calculated with the classical approach;
+% LCF calculated with the approach proposed in the paper (worst case scenario 
+% due to deformations); in both cases the corresponding removed 
+% constraint is provided;
+% Reaction forces when the coupling is in nominal position;
+% Reaction forces in the equilibrium configuration that defines the LCF,
+% where a certain constraint is removed and friction forces are present.
+% This is done in both cases: classical approach and worst case scenario.
+%
 %%  Overall settings
 set(0,'defaulttextinterpreter','latex')
 set(0,'defaultaxesticklabelinterpreter','latex')

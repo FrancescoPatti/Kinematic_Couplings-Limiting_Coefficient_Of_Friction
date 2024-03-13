@@ -1,3 +1,39 @@
+%% Description
+%
+% This script calculates the LIMITING COEFFICIENT OF FRICTION of the typical 
+% Kinematic Coupling: 3 balls on vees distributed at 120 degrees around an
+% axis. The 3 ball centers are on the XY plane, equally distant from the Z axis;
+% the 3 lines of the vees directions intersect at the origin.
+% The overall geometry is defined by assigning a ball radius, a
+% distance between the axis and the balls centers and the angle of the vee.
+%
+% The method is explained in detail in:
+% F. Patti and J. M. Vogels, "Self-alignment of kinematic couplings: Effects of deformations,"
+% Precision Engineering, vol. 60, no. September, pp. 348–354, 2019
+% doi: 10.1016/j.precisioneng.2019.08.013.
+% 
+% The naming convention is as much as possible similar to the one used in
+% the paper.
+%
+% Inputs:
+% Ball radius: DBall
+% Distance from z axis: Arm
+% Half angle of the vees: Beta
+% 
+% The load is defined with a number of forces with the matrix "FTot":
+% colomn "i" represent the force "i", applied in the point of coordinates
+% stored in the column "i" of the matrix RForce.
+%
+% Outputs:
+% LCF calculated with the classical approach;
+% LCF calculated with the approach proposed in the paper (worst case scenario 
+% due to deformations); in both cases the corresponding removed 
+% constraint is provided;
+% Reaction forces when the coupling is in nominal position;
+% Reaction forces in the equilibrium configuration that defines the LCF,
+% where a certain constraint is removed and friction forces are present.
+% This is done in both cases: classical approach and worst case scenario.
+%
 %%  Overall settings
 set(0,'defaulttextinterpreter','latex')
 set(0,'defaultaxesticklabelinterpreter','latex')

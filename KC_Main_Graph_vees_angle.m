@@ -1,3 +1,22 @@
+%% Description
+%
+% This script calculates the LIMITING COEFFICIENT OF FRICTION of a generic
+% Kinematic Coupling.
+% The method is explained in detail in:
+% F. Patti and J. M. Vogels, "Self-alignment of kinematic couplings: Effects of deformations,"
+% Precision Engineering, vol. 60, no. September, pp. 348–354, 2019
+% doi: 10.1016/j.precisioneng.2019.08.013.
+% The naming convention is as much as possible similar to the one used in
+% the paper.
+% The output of the script is the graph reported in Figure 6 in the paper.
+%
+% Inputs:
+% the geometry of the coupling is defined by the coordinates of the 6
+% points of contact in the matrix "r" and the 6 normals in the matrix "n".
+% The load is defined with a number of forces with the matrix "FTot":
+% colomn "i" represent the force "i", applied in the point of coordinates
+% stored in the column "i" of the matrix RForce.
+
 %%  Overall settings
 set(0,'defaulttextinterpreter','latex')
 set(0,'defaultaxesticklabelinterpreter','latex')
