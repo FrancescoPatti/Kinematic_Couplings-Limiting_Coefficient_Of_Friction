@@ -34,6 +34,8 @@
 % where a certain constraint is removed and friction forces are present.
 % This is done in both cases: classical approach and worst case scenario.
 %
+% Author: Francesco Patti - VDL ETG Eindhoven (NL)%
+%
 %%  Overall settings
 set(0,'defaulttextinterpreter','latex')
 set(0,'defaultaxesticklabelinterpreter','latex')

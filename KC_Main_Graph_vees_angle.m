@@ -16,7 +16,9 @@
 % The load is defined with a number of forces with the matrix "FTot":
 % colomn "i" represent the force "i", applied in the point of coordinates
 % stored in the column "i" of the matrix RForce.
-
+%
+% Author: Francesco Patti - VDL ETG Eindhoven (NL)%
+%
 %%  Overall settings
 set(0,'defaulttextinterpreter','latex')
 set(0,'defaultaxesticklabelinterpreter','latex')
