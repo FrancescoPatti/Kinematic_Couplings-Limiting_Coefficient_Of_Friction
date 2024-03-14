@@ -1,7 +1,7 @@
 %
 % Author: Francesco Patti - VDL ETG Eindhoven (NL)%
 %
- Input:
+% Input:
 % This scripts receives the following quantities in input:
 % n:        normals of the 6 points of contact, pointing outward of the
 % grooves. Column k is the normal of constraint k.

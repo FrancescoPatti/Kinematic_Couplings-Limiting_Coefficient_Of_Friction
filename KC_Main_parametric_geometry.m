@@ -47,21 +47,21 @@ global n r FTot RForce DeltaS A NormalReactionsNested mu mu_def;
 % Standard kc: 3 balls on V-grooves at 120 degress;
 % the 3 ball centers are on the xy plane; the 3 lines of the vees direcions intersect at the origin.
 % this model is parametric so we can study the effect of geometry variations on the LCF
-DBall=20e-3;    %[m] Ball diameter 
-Arm=250e-3;     %[m] distance of the ball center from the origin
+DBall=6e-3;    %[m] Ball diameter 
+Arm=18.5e-3;     %[m] distance of the ball center from the origin
 Beta=45*pi/180; %[rad] half angle of the V 
 
 % external force expressed as a matrix of all contributors. 
 % This matrix has as many columns as the applied forces.
-FTot= [ 0     %[N]
-        0     
-        -1];
+FTot= [ 0   0     %[N]
+        0   0  
+        -330  -6];
 
 % Points of application of all external forces.
 % Column 'i' is the point of application of force 'i' in matrix FTOT
-RForce=1e-3*[0	%[m]
-             0	
-             100];
+RForce=1e-3*[0  0	%[m]
+             0	-16.519   
+             0  15.348];
 
 %% Geometry definition
 n=zeros(3,6);       % normals in the 6 points of contact. each column is a unit vector,
@@ -69,10 +69,12 @@ n=zeros(3,6);       % normals in the 6 points of contact. each column is a unit 
 r=zeros(3,6);       % coordinates of the 6 points of contact
 Radius=zeros(3,6);  % column "i" is the vector from ball center to the contact point "i"
 
-Radius(:,1)=RotateY(-(pi/2-Beta))*[0; 0; -DBall/2];
-Radius(:,2)=RotateY(pi/2-Beta)*[0; 0; -DBall/2];
-r(:,1)=[0;Arm;0]+Radius(:,1);    % contact point 1 obtained by vector sum
-r(:,2)=[0;Arm;0]+Radius(:,2);    % contact point 2 obtained by vector sum
+% The first ball is placed along the y axis, the others are obtained by
+% rotating the first one by 120 and 240 degrees.
+Radius(:,1)=RotateY(-(pi/2-Beta))*[0; 0; -DBall/2];% definition of radius vector of point 1
+Radius(:,2)=RotateY(pi/2-Beta)*[0; 0; -DBall/2];   % definition of radius vector of point 2 
+r(:,1)=[0;Arm;0]+Radius(:,1);    % contact point 1 obtained by vector sum of Radius and Arm
+r(:,2)=[0;Arm;0]+Radius(:,2);    % contact point 2 obtained by vector sum of Radius and Arm
 for idx=3:6                 % contact points by rotating the previous ones 
     Radius(:,idx)=RotateZ(120*pi/180)*Radius(:,idx-2);
     r(:,idx)=RotateZ(120*pi/180)*r(:,idx-2);

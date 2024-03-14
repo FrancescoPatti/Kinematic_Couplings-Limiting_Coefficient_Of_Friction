@@ -44,25 +44,25 @@ global n r FTot RForce DeltaS A NormalReactionsNested mu mu_def;
 % Standard kc with vees of 90deg
 % normals in the 6 points of contact
 n=[ -0.707	0.707	0.354	-0.354	0.354	-0.354
-    0	    0	    -0.612	0.612	0.612	-0.612
+    0	    0	    0.612	-0.612	-0.612	0.612
     0.707	0.707	0.707	0.707	0.707	0.707];
 
 % coordinates of the 6 points of contact
-r=[ 7.071	-7.071	-220.042	-212.971	212.971	    220.042
-    250	    250	    -118.876	-131.124	-131.124	-118.876
-    -7.071	-7.071	-7.071	    -7.071	    -7.071	    -7.071 ];
+r=1e-3* [ 2.121	-2.121	-17.0821	-14.9608	14.9608	    17.0821    
+        -18.5	-18.5    7.4128 	 11.0871	11.0871 	7.4128
+        -2.121	-2.121	-2.121	    -2.121	    -2.121	    -2.121 ];
 
 % external force expressed as a matrix of all contributors. 
 % This matrix has as many columns as the applied forces.
-FTot= [ 0     
-        0     
-        -100];
+FTot= [ 0       0     
+        0       0
+        -330    -6];
 
 % Points of application of all external forces.
 % Column 'i' is the point of application of force 'i' in matrix FTOT
-RForce=[0	
-        0	
-        0];
+RForce=1e-3*[0   0	
+        0   -16.519	
+        0   15.348];
 
 KC_LimitingCoefficientOfFriction % this solves the equations
 % and returns the liming coefficient of friction mu and mu_def
