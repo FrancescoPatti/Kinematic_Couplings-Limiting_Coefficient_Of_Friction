@@ -5,3 +5,8 @@ F. Patti and J. M. Vogels, “Self-alignment of kinematic couplings: Effects of 
 
 It receives in input the coordinates of the 6 points of contact, the 6 normals of the contacts, the forces and the points of application of such forces.
 it returns the LCF following the classical approach and the LCF following the approach proposed in the mentioned paper.
+
+Developed by
+Francesco Patti
+VDL ETG Technology & Development BV
+Eindhoven - The Netherlands
